@@ -102,3 +102,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+.idea
+assembly_and_disassembly_fen.py
