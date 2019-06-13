@@ -9,7 +9,6 @@
 
 
 input_f = "rnbqkbnr/pppppppp/8/8/8/17/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
-# l = re.split('/| ', input_f)
 figures = input_f.split()[0]
 move = input_f.split()[1]
 castling = input_f.split()[2]
@@ -17,6 +16,13 @@ halfway = input_f.split()[3]
 w_move = input_f.split()[4]
 b_move = input_f.split()[5]
 
+
+def assemble_fen():
+    k = ['2', '3', 'd', 'f', 'e', '1', 'f', '3', '5', 'd']
+    for i in range(len(k)):
+        if k[i].isdigit() and k[i + 1].isdigit():
+            k[i] = int(k[i]) + int(k[i + 1])
+            k[i + 1] = ' '
 
 location_figures = figures.split('/')
 
