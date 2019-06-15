@@ -2,14 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b63a19a-2b47-4fc7-b772-7f8a5f4c5034" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/count_halfway.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/count_moves.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/move_figure.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FEN - ASCII.py" beforeDir="false" afterPath="$PROJECT_DIR$/FEN - ASCII.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assembly_and_disassembly_fen.py" beforeDir="false" afterPath="$PROJECT_DIR$/assembly_and_disassembly_fen.py" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/half_move_count.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/move_figure.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/moves_count.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/chess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/chess.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> 07f444fef7beb60161c1f50734ba2d5dc83a0f58
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,47 +33,87 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FEN - ASCII.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1207">
               <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+=======
+      <file leaf-file-name="FEN - ASCII.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FEN - ASCII.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="24" selection-start-line="24" selection-end-line="27" selection-end-column="35" />
+>>>>>>> 07f444fef7beb60161c1f50734ba2d5dc83a0f58
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assembly_and_disassembly_fen.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
               <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="20" />
+=======
+      <file leaf-file-name="assembly_and_disassembly_fen.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assembly_and_disassembly_fen.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+>>>>>>> 07f444fef7beb60161c1f50734ba2d5dc83a0f58
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/count_moves.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
               <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+=======
+      <file leaf-file-name="moves_count.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/moves_count.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+>>>>>>> 07f444fef7beb60161c1f50734ba2d5dc83a0f58
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/count_halfway.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+=======
+      <file leaf-file-name="half_move_count.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/half_move_count.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+>>>>>>> 07f444fef7beb60161c1f50734ba2d5dc83a0f58
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/move_figure.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
               <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+=======
+      <file leaf-file-name="move_figure.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/move_figure.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+>>>>>>> 07f444fef7beb60161c1f50734ba2d5dc83a0f58
             </state>
           </provider>
         </entry>
@@ -86,10 +136,16 @@
         <option value="$PROJECT_DIR$/Сборка и разборка.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/assembly_and_disassembly_fen.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/FEN - ASCII.py" />
         <option value="$PROJECT_DIR$/move_figure.py" />
         <option value="$PROJECT_DIR$/moves_count.py" />
         <option value="$PROJECT_DIR$/count_halfway.py" />
+=======
+        <option value="$PROJECT_DIR$/moves_count.py" />
+        <option value="$PROJECT_DIR$/half_move_count.py" />
+        <option value="$PROJECT_DIR$/move_figure.py" />
+>>>>>>> 07f444fef7beb60161c1f50734ba2d5dc83a0f58
       </list>
     </option>
   </component>
@@ -124,6 +180,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -156,9 +213,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="FEN - ASCII" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="chess" />
@@ -178,9 +232,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="assembly_and_disassembly_fen" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="chess" />
@@ -200,10 +251,8 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="moves_count" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="chess" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -226,6 +275,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+=======
+    <list>
+      <item itemvalue="Python.FEN - ASCII" />
+      <item itemvalue="Python.assembly_and_disassembly_fen" />
+      <item itemvalue="Python.Сборка и разборка" />
+    </list>
+>>>>>>> 07f444fef7beb60161c1f50734ba2d5dc83a0f58
     <recent_temporary>
       <list>
         <item itemvalue="Python.moves_count" />
@@ -255,18 +311,32 @@
     <option name="totallyTimeSpent" value="8331000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25718608" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.22422259" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24920969" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24528302" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+>>>>>>> 07f444fef7beb60161c1f50734ba2d5dc83a0f58
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
@@ -279,12 +349,32 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="right" id="Database" order="4" />
+=======
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Database Changes" order="7" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" />
+>>>>>>> 07f444fef7beb60161c1f50734ba2d5dc83a0f58
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/FEN - ASCII.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -294,13 +384,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FEN - ASCII.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1207">
           <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+=======
+        <state relative-caret-position="306">
+          <caret line="24" selection-start-line="24" selection-end-line="27" selection-end-column="35" />
+>>>>>>> 07f444fef7beb60161c1f50734ba2d5dc83a0f58
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assembly_and_disassembly_fen.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="289">
           <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="20" />
         </state>
@@ -317,13 +413,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+=======
+        <state relative-caret-position="374">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/moves_count.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/half_move_count.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+>>>>>>> 07f444fef7beb60161c1f50734ba2d5dc83a0f58
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/move_figure.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="221">
           <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+=======
+        <state relative-caret-position="238">
+          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+>>>>>>> 07f444fef7beb60161c1f50734ba2d5dc83a0f58
         </state>
       </provider>
     </entry>
