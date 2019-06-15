@@ -1,10 +1,15 @@
 """
 Условие задачи
-Создать структуру для хранения позиции.
-Написать функцию для парсинга FEN-позиции в эту структуру.
-Написать функцию для формирования FEN-строки из этой структуры.
-Дано: FEN-позиция, записанная с небольшими неточностями.
-Надо: FEN-строка, созданная по данной позиции.
+Дана FEN-позиция и ход фигурой.
+Нужно посчитать этот ход и передать право хода другой стороне.
+ФИГУРЫ ПЕРЕМЕЩАТЬ НЕ НУЖНО
+
+Дано:
+   FEN-позиция
+   ход фигурой
+Надо:
+   FEN-позиция после хода
+
 """
 
 
@@ -18,6 +23,7 @@ class Chess:
         self.halfway = fen.split()[3]
         self.w_move = fen.split()[4]
         self.b_move = fen.split()[5]
+        # self.xod = fen.split()[6]
 
     def print_fen(self):
         return self.fen_list
@@ -71,14 +77,21 @@ class Chess:
         return ' '.join([self.matrix_figures_str_fen(), self.move,
                          self.castling, self.halfway, self.w_move, self.b_move])
 
-    def move(self):
+    def move_f(self):
+        if xod:
+            if self.move == 'w':
+                self.move = 'b'
+            else:
+                self.move = 'w'
         return self.move
 
 
 if __name__ == "__main__":
     fen = input(str())
+    xod = input(str())
     chess1 = Chess(fen)
     chess1_fen = chess1.parse_location_figures()
     chess1.matrix_figures()
+    chess1.move_f()
     we = chess1.matrix_figures_str_fen()
     print(chess1.assemblage_fen())
