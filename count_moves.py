@@ -18,12 +18,20 @@ class Chess:
     def __init__(self, fen):
         self.fen_list = fen.split()
         self.figures = fen.split()[0]
-        self.move = fen.split()[1]
-        self.castling = fen.split()[2]
-        self.halfway = fen.split()[3]
-        self.w_move = fen.split()[4]
-        self.b_move = fen.split()[5]
-        # self.xod = fen.split()[6]
+        self.next_move = fen.split()[1][0].lower()
+        self.castling = self.check_castling(fen.split()[2])
+        self.passant = fen.split()[3]
+        self.halfmoves = fen.split()[4]
+        self.fullmoves = int(fen.split()[5])
+
+    @staticmethod
+    def check_castling(line):
+        template = "KQkq"
+        new_line = ""
+        for c in template:
+            if c in line:
+                new_line += c
+        return new_line if new_line else "-"
 
     def print_fen(self):
         return self.fen_list
@@ -33,10 +41,15 @@ class Chess:
         location_figures = self.figures.split('/')
         for y in range(len(location_figures)):
             row = location_figures[y]
-            for i in range(8):
-                if row[i].isdigit():
-                    row = row[:int(i)] + '.' * (int(row[i])) + row[(int(i)) + 1:]
-            location_figures[y] = row
+            new_row=''
+            for k in row:
+                if k.isdigit():
+                    new_row += '.'*int(k)
+                elif k in 'rnbqkbnrpRNBQKBNRP':
+                    new_row += k
+            if len(new_row) < 9:
+                new_row += '.'*(8 - len(new_row))
+            location_figures[y] = new_row
         return location_figures
 
     def matrix_figures(self):
@@ -74,24 +87,28 @@ class Chess:
         return ''.join(array_n)
 
     def assemblage_fen(self):
-        return ' '.join([self.matrix_figures_str_fen(), self.move,
-                         self.castling, self.halfway, self.w_move, self.b_move])
+        return ' '.join([self.matrix_figures_str_fen(), self.next_move,
+                         self.castling, self.passant, self.halfmoves, str(self.fullmoves)])
 
-    def move_f(self):
-        if xod:
-            if self.move == 'w':
-                self.move = 'b'
+    def make_move(self, move):
+        if move:
+            if self.next_move == 'w':
+                self.next_move = 'b'
             else:
-                self.move = 'w'
-        return self.move
+                self.next_move = 'w'
+                self.fullmoves += 1
 
 
 if __name__ == "__main__":
-    fen = input(str())
-    xod = input(str())
+    fen = input(str())      # inpput fen notation
+    move = input(str())     #input move
+
     chess1 = Chess(fen)
     chess1_fen = chess1.parse_location_figures()
     chess1.matrix_figures()
-    chess1.move_f()
+
+    chess1.make_move(move)
+
     we = chess1.matrix_figures_str_fen()
+
     print(chess1.assemblage_fen())
