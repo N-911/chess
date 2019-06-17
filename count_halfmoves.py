@@ -14,6 +14,8 @@
    FEN-позиция после хода
 
 """
+
+
 class Chess:
 
     def __init__(self, fen):
@@ -22,7 +24,7 @@ class Chess:
         self.next_move = fen.split()[1][0].lower()
         self.castling = self.check_castling(fen.split()[2])
         self.passant = fen.split()[3]
-        self.halfmoves = fen.split()[4]
+        self.halfmoves = int(fen.split()[4])
         self.fullmoves = int(fen.split()[5])
 
     @staticmethod
@@ -34,22 +36,23 @@ class Chess:
                 new_line += c
         return new_line if new_line else "-"
 
-    def print_fen(self):
-        return self.fen_list
+    def __str__(self):
+        return ' '.join([self.matrix_figures_str_fen(), self.next_move,
+                         self.castling, self.passant, str(self.halfmoves), str(self.fullmoves)])
 
     def parse_location_figures(self):
         """парсит положение фигур - возвращает list строк позиций"""
         location_figures = self.figures.split('/')
         for y in range(len(location_figures)):
             row = location_figures[y]
-            new_row=''
+            new_row = ''
             for k in row:
                 if k.isdigit():
-                    new_row += '.'*int(k)
+                    new_row += '.' * int(k)
                 elif k in 'rnbqkbnrpRNBQKBNRP':
                     new_row += k
             if len(new_row) < 9:
-                new_row += '.'*(8 - len(new_row))
+                new_row += '.' * (8 - len(new_row))
             location_figures[y] = new_row
         return location_figures
 
@@ -87,34 +90,57 @@ class Chess:
                 array_n.append(array_l[i])
         return ''.join(array_n)
 
-    def assemblage_fen(self):
-        return ' '.join([self.matrix_figures_str_fen(), self.next_move,
-                         self.castling, self.passant, self.halfmoves, str(self.fullmoves)])
+    def print_chess_board(self):
+        board_matrix = [
+            list('  +-----------------+'),
+            list('8 |                 |'),
+            list('7 |                 |'),
+            list('6 |                 |'),
+            list('5 |                 |'),
+            list('4 |                 |'),
+            list('3 |                 |'),
+            list('2 |                 |'),
+            list('1 |                 |'),
+            list('  +-----------------+'),
+            list('    a b c d e f g h  '), ]
+        for i in range(8):
+            f = 0
+            for j in range(8):
+                board_matrix[i + 1][j + 4 + f] = self.matrix_figures()[i][j]
+                f += 1
+
+        """plot board wirh figures"""
+        for i in range(11):
+            print(*board_matrix[i], sep='')
 
     def make_move(self, move):
         if move:
             if self.next_move == 'w':
                 self.next_move = 'b'
+                if self.get_move_figure(move)[0].lower() == 'p' or self.get_move_figure(move)[2] != '.':
+                    self.halfmoves = 0
+                else:
+                    self.halfmoves += 1
             else:
                 self.next_move = 'w'
                 self.fullmoves += 1
+                if self.get_move_figure(move)[0].lower() == 'p' or self.get_move_figure(move)[2] != '.':
+                    self.halfmoves = 0
+                else:
+                    self.halfmoves += 1
+
+    def get_move_figure(self, move):
+        horizontal = {'8': 0, '7': 1, '6': 2, '5': 3, '4': 4, '3': 5, '2': 6, '1': 7}
+        vertical = {'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4, 'f': 5, 'g': 6, 'h': 7}
+        figure = self.matrix_figures()[horizontal[move[1]]][vertical[move[0]]]
+        figure_start_position = self.matrix_figures()[horizontal[move[1]]][vertical[move[0]]]
+        figure_end_position = self.matrix_figures()[horizontal[move[3]]][vertical[move[2]]]
+        return figure, figure_start_position, figure_end_position
 
 
 if __name__ == "__main__":
-    fen = input(str())      # inpput fen notation
-    move = input(str())     #input move
-
+    fen = input(str())  # inpput fen notation
+    move = input(str())  # input move
     chess1 = Chess(fen)
-    chess1_fen = chess1.parse_location_figures()
-    chess1.matrix_figures()
-
     chess1.make_move(move)
-
-    we = chess1.matrix_figures_str_fen()
-
-    print(chess1.assemblage_fen())
-
-
-
-
-
+    print(chess1)
