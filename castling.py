@@ -18,6 +18,8 @@ KQkq — возможны короткие и длинные рокировки 
 Надо:
    FEN-позиция после хода
 """
+
+
 class Chess:
 
     def __init__(self, fen):
@@ -29,6 +31,8 @@ class Chess:
         self.halfmoves = int(fen.split()[4])
         self.fullmoves = int(fen.split()[5])
         self.matrix = self.matrix_figures()
+        self.moving_figure = self.get_move_figure(move)
+        self.bit_figure = self.get_bit_figure(move)
 
     @staticmethod
     def check_castling(line):
@@ -118,6 +122,7 @@ class Chess:
 
     def make_move(self, move):
         if move:
+            a1 = self.get_move_figure(move)
             horizontal = {'8': 0, '7': 1, '6': 2, '5': 3, '4': 4, '3': 5, '2': 6, '1': 7}
             vertical = {'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4, 'f': 5, 'g': 6, 'h': 7}
             figure = self.matrix[horizontal[move[1]]][vertical[move[0]]]
@@ -126,36 +131,95 @@ class Chess:
             figure_end_position = self.matrix[horizontal[move[3]]][vertical[move[2]]]
             self.matrix[horizontal[move[1]]][vertical[move[0]]] = '.'
             self.matrix[horizontal[move[3]]][vertical[move[2]]] = figure
-            # self.castling = check_castling_2(self)
-            if self.next_move == 'w':
-                self.next_move = 'b'
-                if figure.lower() == 'p' or figure_end_position != '.':
-                    self.halfmoves = 0
-                else:
-                    self.halfmoves += 1
+            self.next_color_halfmoves(figure,figure_start_position, figure_end_position)
+            self.check_castling_2(move)
+
+
+        return figure, figure_start_position, figure_end_position, current_player, self.castling
+
+
+    def next_color_halfmoves(self, figure, figure_start_position, figure_end_position):
+
+        if self.next_move == 'w':
+            self.next_move = 'b'
+            if figure.lower() == 'p' or figure_end_position != '.':
+                self.halfmoves = 0
             else:
-                self.next_move = 'w'
-                self.fullmoves += 1
-                if figure.lower() == 'p' or figure_end_position != '.':
-                    self.halfmoves = 0
-                else:
-                    self.halfmoves += 1
-        return figure, figure_start_position, figure_end_position, current_player
+                self.halfmoves += 1
+        else:
+            self.next_move = 'w'
+            self.fullmoves += 1
+            if figure.lower() == 'p' or figure_end_position != '.':
+                self.halfmoves = 0
+            else:
+                self.halfmoves += 1
+        return self.next_move, self.halfmoves
 
-        def check_castling_2(self):
-            pass
+    def check_castling_2(self, move):
+        if move:
+            if self.moving_figure == 'k':
+                if 'k' in self.castling:
+                    self.castling =self.castling[0:self.castling.index('k')]
+            elif self.moving_figure == 'K':
+                if 'KQ' in self.castling:
+                    self.castling = self.castling[self.castling.index('K')+2:]
+                if 'K' in self.castling:
+                    self.castling = self.castling[self.castling.index('K') + 1:]
+            elif self.moving_figure == 'r':
+                if move[:2] == 'a8':
+                    if 'q' in self.castling:
+                        self.castling = self.castling[0:self.castling.index('q')]
+                if move[:2] == 'h8':
+                    if 'k' in self.castling:
+                        self.castling = self.castling[0:self.castling.index('k')] + self.castling[self.castling.index('k')+1:]
+            elif self.moving_figure == 'R':
+                if move[:2] == 'a1':
+                    if 'Q' in self.castling:
+                        self.castling = self.castling[0:self.castling.index('Q')]+ self.castling[self.castling.index('Q')+1:]
+                if move[:2] == 'h1':
+                    if 'K' in self.castling:
+                        self.castling = self.castling[0:self.castling.index('K')] + self.castling[self.castling.index('K')+1:]
+            elif self.bit_figure == 'r':
+                if move[2:4] == 'a8':
+                    if 'q' in self.castling:
+                        self.castling = self.castling[0:self.castling.index('q')]
+                if move[2:4] == 'h8':
+                    if 'k' in self.castling:
+                        self.castling = self.castling[0:self.castling.index('k')] + self.castling[self.castling.index('k')+1:]
+            elif self.bit_figure == 'R':
+                if move[2:4] == 'a1':
+                    if 'Q' in self.castling:
+                        self.castling = self.castling[0:self.castling.index('Q')]+ self.castling[self.castling.index('Q')+1:]
+                if move[2:4] == 'h1':
+                    if 'K' in self.castling:
+                        self.castling = self.castling[self.castling.index('K')+1:]
+
+        return self.castling
+
+    def get_bit_figure(self, move):
+        if move:
+            horizontal = {'8': 0, '7': 1, '6': 2, '5': 3, '4': 4, '3': 5, '2': 6, '1': 7}
+            vertical = {'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4, 'f': 5, 'g': 6, 'h': 7}
+            self.bit_figure = self.matrix[horizontal[move[3]]][vertical[move[2]]]
+        return self.bit_figure
 
 
+    def get_move_figure (self, move):
+        if move:
+            horizontal = {'8': 0, '7': 1, '6': 2, '5': 3, '4': 4, '3': 5, '2': 6, '1': 7}
+            vertical = {'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4, 'f': 5, 'g': 6, 'h': 7}
+            self.moving_figure = self.matrix[horizontal[move[1]]][vertical[move[0]]]
+        return self.moving_figure
 
 if __name__ == "__main__":
     fen = input(str())  # inpput fen notation
     move = input(str())  # input move
     chess1 = Chess(fen)
+    # chess1.get_move_figure(move)
+    chess1.get_move_figure(move)
     chess1.make_move(move)
     print(chess1)
     print(chess1.print_chess_board())
-    print('figure ',chess1.make_move(move)[0])
-
-    print( 'current_player ' ,chess1.make_move(move)[3])
-
+    print('moving_figure - ',chess1.moving_figure)
+    # print( 'current_player ' ,chess1.make_move(move)[3])
 
