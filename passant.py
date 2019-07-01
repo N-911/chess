@@ -128,9 +128,6 @@ class Chess:
             current_player = self.next_move
             figure_start_position = self.matrix[horizontal[move[1]]][vertical[move[0]]]
             figure_end_position = self.matrix[horizontal[move[3]]][vertical[move[2]]]
-
-                                                                # взятие на проходе
-
             self.matrix[horizontal[move[1]]][vertical[move[0]]] = '.'
             self.matrix[horizontal[move[3]]][vertical[move[2]]] = figure
             self.next_color_halfmoves(figure,figure_start_position, figure_end_position)
@@ -138,9 +135,7 @@ class Chess:
             if len(move) == 5:
                 self.pawn_turn(move)                #преобразование пешки в фигуру
 
-
-
-        return figure, figure_start_position, figure_end_position, current_player, self.castling
+        return figure, figure_start_position, figure_end_position, current_player, self.castling, self.passant
 
     def next_color_halfmoves(self, figure, figure_start_position, figure_end_position):
 
@@ -222,43 +217,37 @@ class Chess:
         return  self.moving_figure, self.matrix
 
     def set_passant (self, move):
-        if self.passant == '-' and self.moving_figure == 'P':
-            if move[1] == '2' and move[3] == '4':
-                # self.passant = move[0] + '3'
-                self.passant ='33'
-
-        elif self.passant == '-' and self.moving_figure == 'p':
-            if move[1] == '7' and move[3] == '5':
-                # self.passant = move[0] + '6'
-                self.passant = '33'
-        else:
-            pass
-        return self.passant
-
-    def check_passant2(self,move):
-        self.passant = '-'
-
-
-    def check_passant(self,move):
         horizontal = {'8': 0, '7': 1, '6': 2, '5': 3, '4': 4, '3': 5, '2': 6, '1': 7}
         vertical = {'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4, 'f': 5, 'g': 6, 'h': 7}
-        if self.passant == move[2:4]:
+        if self.passant == '-' and self.moving_figure == 'P':
+            if self.matrix[horizontal[move[3]]][vertical[move[2]]-1] == 'p' or self.matrix[horizontal[move[3]]][vertical[move[2]]+1] == 'p':
+                if move[1] == '2' and move[3] == '4':
+                    self.passant = move[0] + '3'
+            else:
+                self.passant = '-'
+        elif self.passant == '-' and self.moving_figure == 'p':
+            if self.matrix[horizontal[move[3]]][vertical[move[2]]-1] == 'P' or self.matrix[horizontal[move[3]]][vertical[move[2]]+1] == 'P':
+                if move[1] == '7' and move[3] == '5':
+                    self.passant = move[0] + '6'
+            else:
+                self.passant = '-'
+        elif self.passant == move[2:4]:
             if self.moving_figure == 'P':
                 self.matrix[horizontal[move[1]]][vertical[move[2]]] = '.'
                 self.passant = '-'
             elif self.moving_figure == 'p':
                 self.matrix[horizontal[move[1]]][vertical[move[2]]] = '.'
                 self.passant = '-'
-        return self.passant, self.matrix
+        else:
+            self.passant = '-'
+        return self.passant,self.matrix
 
 if __name__ == "__main__":
     fen = input(str())  # inpput fen notation
-
-    print(fen.split()[3])
     move = input(str())  # input move
     chess1 = Chess(fen)
     chess1.get_move_figure(move)
-    chess1.check_passant2(move)
+    chess1.set_passant(move)                #Взятие на проходе
     chess1.make_move(move)
     print(chess1)
     print(chess1.print_chess_board())
