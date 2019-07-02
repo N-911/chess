@@ -50,7 +50,7 @@ class Chess:
 
     def __str__(self):
         return ' '.join([self.matrix_figures_str_fen(), self.next_move,
-                         self.castling, self.passant, str(self.halfmoves), str(self.fullmoves)])
+                         self.castling if len(self.castling) > 0 else '-', self.passant, str(self.halfmoves), str(self.fullmoves)])
 
     def parse_location_figures(self):
         """парсит положение фигур - возвращает list строк позиций"""
