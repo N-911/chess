@@ -141,7 +141,17 @@ class Chess:
                     self.matrix[self.horizontal[move[1]]][self.vertical['h']] = '.'
                     self.matrix[self.horizontal[move[1]]][self.vertical['f']] = rook
 
+
         return figure, figure_start_position, figure_end_position, current_player, self.castling, self.passant
+
+
+    def generate_moves(self, b):
+        for row in  self.matrix:
+            for i in row:
+                if
+
+        find_fig_position
+
 
     def next_color_halfmoves(self, figure, figure_start_position, figure_end_position):
 
