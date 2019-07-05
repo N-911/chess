@@ -23,9 +23,11 @@ class Chess:
         self.halfmoves = int(fen.split()[4])
         self.fullmoves = int(fen.split()[5])
         self.matrix = self.matrix_figures()
+        self.matrix_moves = self.generate_matrix_moves()[0]
         # self.moving_figure = self.get_move_figure(move)
-        self.moving_figure = None
-        self.bit_figure = self.get_bit_figure(move)
+        self.moving_figure = []
+        self.list_moves = self.generate_matrix_moves()[1]
+        self.bit_figure = None
 
     horizontal = {'8': 0, '7': 1, '6': 2, '5': 3, '4': 4, '3': 5, '2': 6, '1': 7}
     vertical = {'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4, 'f': 5, 'g': 6, 'h': 7}
@@ -140,17 +142,67 @@ class Chess:
                 if self.vertical[move[0]] < self.vertical[move[2]]:
                     self.matrix[self.horizontal[move[1]]][self.vertical['h']] = '.'
                     self.matrix[self.horizontal[move[1]]][self.vertical['f']] = rook
+        else:
+            pass
 
 
         return figure, figure_start_position, figure_end_position, current_player, self.castling, self.passant
 
+    def generate_all_moves(self):
 
-    def generate_moves(self, b):
-        for row in  self.matrix:
-            for i in row:
-                if
+        figures = 'PRNBKQ' if self.next_move =='w' else 'prnbkq'
+        enemy_figures = 'PRNBKQ' if self.next_move =='b' else 'prnbkq'
+        for elemen in figures:
 
-        find_fig_position
+
+
+
+
+    def generate_matrix_moves(self):
+        moves_n = [(-2, 1), (-1,2), (1,2),(2,1),(2,-1), (1, -2), (-1, -2),(-2,-1)]
+        matrix = [['.'] * 8 for x in range(8)]
+        figure_position = [7,6]
+        figure_position_fen = self.get_key(Chess.vertical, figure_position[1]) + self.get_key(Chess.horizontal,figure_position[0])
+        matrix[figure_position[0]][figure_position[1]] = '+'
+        aa =[]
+        for i in range(8):
+            x = figure_position[0] + moves_n[i][0]
+            y = figure_position[1] + moves_n[i][1]
+            if (0 <= x < 8) and (0 <= y < 8):
+                matrix [x][y] = "N"
+                aa.append( figure_position_fen + self.get_key(Chess.vertical, y) + self.get_key(Chess.horizontal, x))
+
+
+        return matrix, aa
+
+
+    def get_key (self,dict, value):
+        for key, val in dict.items():
+            if val == value:
+                return key
+
+    def print_generate_matrix_moves(self):
+        board_matrix = [
+            list('  +-----------------+'),
+            list('8 |                 |'),
+            list('7 |                 |'),
+            list('6 |                 |'),
+            list('5 |                 |'),
+            list('4 |                 |'),
+            list('3 |                 |'),
+            list('2 |                 |'),
+            list('1 |                 |'),
+            list('  +-----------------+'),
+            list('    a b c d e f g h  '), ]
+        for i in range(8):
+            f = 0
+            for j in range(8):
+                board_matrix[i + 1][j + 4 + f] = self.matrix_moves[i][j]
+                f += 1
+
+        """plot board wirh figures"""
+        for i in range(11):
+            print(*board_matrix[i], sep='')
 
 
     def next_color_halfmoves(self, figure, figure_start_position, figure_end_position):
@@ -219,6 +271,8 @@ class Chess:
     def get_bit_figure(self, move):
         if move:
             self.bit_figure = self.matrix[self.horizontal[move[3]]][self.vertical[move[2]]]
+
+
         return self.bit_figure
 
     def get_move_figure(self, move):
@@ -279,8 +333,13 @@ class Chess:
 if __name__ == "__main__":
     fen = input(str())  # inpput fen notation
     move = input(str())  # input move
+    # fen ="r4rk1/pppppppp/8/N7/8/8/PPPPPPPP/R3K2R w KQ - 1 17"
+    # move ="e1c1"
     chess1 = Chess(fen)
-    chess1.get_move_figure(move)
-    chess1.set_passant(move)  # Взятие на проходе
-    chess1.make_move(move)
-    print(chess1)
+    if move:
+        chess1.get_move_figure(move)
+        chess1.set_passant(move)  # Взятие на проходе
+        chess1.make_move(move)
+    print(chess1.print_chess_board())
+    print(chess1.print_generate_matrix_moves())
+    print(sorted(chess1.list_moves))
