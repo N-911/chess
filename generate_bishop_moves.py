@@ -194,18 +194,20 @@ class Chess:
 
     def generate_knights_moves (self, figure_position):          # list [0,1]
         moves_n = [(-2, 1), (-1,2), (1,2),(2,1),(2,-1), (1, -2), (-1, -2),(-2,-1)]
-        enemy_figures = 'PRNBKQ' if self.next_move == 'b' else 'rnbkq'
+        enemy_figures = 'PRNBKQ' if self.next_move == 'b' else 'prnbkq'
         matrix = [['.'] * 8 for x in range(8)]
         # figure_position = [7,1]
         figure_position_fen = self.get_key(Chess.vertical, figure_position[1]) + self.get_key(Chess.horizontal,figure_position[0])
         moves_list =[]
+        enemy ='PRNBKQ' if self.next_move == 'w' else 'prnbkq'
         for i in range(8):
             x = figure_position[0] + moves_n[i][0]
             y = figure_position[1] + moves_n[i][1]
             if (0 <= x < 8) and (0 <= y < 8):
                 # matrix [x][y] = "N"
-                # if self.matrix[x][y] == '.' or self.matrix[x][y] in 'PRNBKQ' if self.next_move == 'b' else 'rnbkq':
-                if self.matrix[x][y] not in 'PRNBKQ' if self.next_move == 'w' else 'rnbkq':
+                if self.matrix[x][y] not in enemy:
+                # if self.matrix[x][y] == '.' and self.matrix[x][y] not in 'PRNBKQ' if self.next_move == 'w' else 'prnbkq':
+                # if self.matrix[x][y] not in 'PRNBKQ' if self.next_move == 'b' else 'prnbkq':
                     moves_list.append( figure_position_fen + self.get_key(Chess.vertical, y) + self.get_key(Chess.horizontal, x))
 
         return  sorted(moves_list)
@@ -383,9 +385,9 @@ class Chess:
         return self.passant, self.matrix
 
 if __name__ == "__main__":
-    # fen = input(str())  # inpput fen notation
+    fen = input(str())  # inpput fen notation
     # move = input(str())  # input move
-    fen ="r2qk2r/ppp2ppp/2np1n2/2bNp1B1/2B1P1b1/3P1N2/PPP2PPP/R2QK2R b KQkq - 3 7"
+    # fen ="r2qk2r/ppp2ppp/2np1n2/2bNp1B1/2B1P1b1/3P1N2/PPP2PPP/R2QK2R b KQkq - 3 7"
     move =None
     chess1 = Chess(fen)
     if move:
