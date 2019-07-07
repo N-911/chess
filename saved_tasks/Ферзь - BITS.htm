@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="%D0%A4%D0%B5%D1%80%D0%B7%D1%8C%20-%20BITS_files/bootstrap.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="%D0%A4%D0%B5%D1%80%D0%B7%D1%8C%20-%20BITS_files/font-awesome.css">
+        <link rel="stylesheet" href="%D0%A4%D0%B5%D1%80%D0%B7%D1%8C%20-%20BITS_files/style.css">
+
+        <script src="%D0%A4%D0%B5%D1%80%D0%B7%D1%8C%20-%20BITS_files/jquery-1.js"></script>
+        <script src="%D0%A4%D0%B5%D1%80%D0%B7%D1%8C%20-%20BITS_files/popper.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="%D0%A4%D0%B5%D1%80%D0%B7%D1%8C%20-%20BITS_files/bootstrap.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <title>Ферзь - BITS *</title>
+    </head>
+    <body>
+        <div>
+    <div class="navbar mb-4 text-white bg-success">
+        <h2 id="htmlTitle">
+                            <a href="https://www.robotsharp.info/?page=TaskList" style="color: white">«</a>
+                        Ферзь - BITS *
+        </h2>
+        <div class="btn-group righted" style="float:right;">
+            <strong>Сергей Николаенко</strong>
+        </div>
+    </div>
+<div class="container-fluid px-4">
+    <div class="row">
+        <div class="col-8 h-100">
+            <div class="btn-group">
+                <a href="https://www.robotsharp.info/index.php?page=TaskList" class="btn btn-secondary">«&nbsp;Список</a>
+                &nbsp;
+                    <a href="https://www.robotsharp.info/index.php?page=TaskCode&amp;taskId=1746" class="btn btn-primary btn-block">Решать</a>
+                &nbsp;
+                <a href="https://www.robotsharp.info/index.php?page=TaskStat&amp;taskId=1746">Статистика</a>
+            </div>
+            		<div class="row">
+			<div class="col-12">
+				<br><h3>Условие задачи</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="task-text">
+					Дана шахматная позиция в FEN формате.
+<br>Известно, что в этой позиции есть:
+<br><ul><li>одна белая ладья,</li>
+<br><li>один белый слон,</li>
+<br><li>один белый ферзь,</li>
+<br><li>а также возможно наличие других белых и чёрных фигур.</li></ul>
+<br>Определить битовую маску возможных ходов белых фигур - ладьи, слона и ферзя.
+<br>Ладья ходит по вертикалям и горизонталям.
+<br>Слон ходит по диагоналям.
+<br>Ферзь ходит как ладья и слон вместе.
+<br>Фигура обязана пойти как минимум на одну клетку.
+<br>Фигура не может перепрыгивать другие фигуры.
+<br>Фигура может пойти на пустую клетку или 
+<br>на клетку с фигурой противоположного цвета.
+<br>
+<br><strong>Начальные данные</strong>: строка с шахматной позицией в FEN-формате.
+<br><strong>Вывод результата</strong>: 3 числа типа <span class="prog kwd">ulong</span> на трёх строчках.
+<br>на первой строке - число, соответствующее битовой маске возможных ходов белой ладьи
+<br>на второй строке - число, соответствующее битовой маске возможных ходов белого слона
+<br>на третьей строке - число, соответствующее битовой маске возможных ходов белого ферзя
+<br><img src="%D0%A4%D0%B5%D1%80%D0%B7%D1%8C%20-%20BITS_files/1746.png" class="width-100">
+<br>
+				</div>
+			</div>
+		</div>
+                </div>
+        <div class="col-4">
+                    <div class="col-12 example mb-4">
+            <div class="card-header">
+                <label for="fileIn">Начальные данные</label>
+            </div>
+            <textarea id="fileIn" class="form-control text-white bg-info" rows="1" readonly="readonly" style="font-family:monospace">5k2/8/4Q3/8/5B2/2R5/8/3K4
+</textarea>
+        </div>
+        <div class="col-12 example">
+            <div class="card-header">
+                <label for="fileOut">Результат</label>
+            </div>
+            <textarea id="fileOut" class="form-control text-white bg-success" rows="3" readonly="readonly" style="font-family:monospace">289360691368494084
+145390965166737412
+6068863523097809168
+</textarea>
+        </div>        </div>
+    </div>
+</div>
+        </div>
+    
+</body></html>

@@ -33,6 +33,7 @@ class Chess:
     vertical = {'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4, 'f': 5, 'g': 6, 'h': 7}
     castling_d = ['e1g1', 'e1c1', 'e8g8', 'e8c8']
 
+
     @staticmethod
     def check_castling(line):
         template = "KQkq"
@@ -150,13 +151,64 @@ class Chess:
 
     def generate_all_moves(self):
 
-        figures = 'PRNBKQ' if self.next_move =='w' else 'prnbkq'
-        enemy_figures = 'PRNBKQ' if self.next_move =='b' else 'prnbkq'
-        for elemen in figures:
+        figures = 'RNBKQ' if self.next_move =='w' else 'rnbkq'
+
+        figures_position = {x : self.get_position(x) for x in figures }
+        list_moves = []
+        for el in figures:
+
+            if el == 'N' or el == 'n':
+                ll = figures_position[el]
+                for i in ll:
+                    list_moves+=(self.generate_knights_moves(i))
+            else:
+                pass
+
+        return sorted(list_moves)
+
+    def sorted_list_moves(self):
+        list_moves = self.generate_all_moves()
+        all = []
+        sorted_list =[]
+        if len(list_moves) > 0:
+            sorted_list.append(list_moves[0])
+            for i in range(1, len(list_moves)):
+                if list_moves[i][:2] == list_moves[i - 1][:2]:
+                    sorted_list.append(list_moves[i])
+                else:
+                    all.append(sorted_list)
+                    sorted_list =list()
+                    sorted_list.append(list_moves[i])
+            all.append(sorted_list)
+        return all
+
+    def get_position(self, x):
+        """ позиции фигуры """
+        list_f = []
+        for i in range(8):
+            for j in range(8):
+                if self.matrix[i][j] == x:
+                    list_f.append([i,j])
+        return list_f
 
 
+    def generate_knights_moves (self, figure_position):          # list [0,1]
+        moves_n = [(-2, 1), (-1,2), (1,2),(2,1),(2,-1), (1, -2), (-1, -2),(-2,-1)]
+        enemy_figures = 'PRNBKQ' if self.next_move == 'b' else 'rnbkq'
+        matrix = [['.'] * 8 for x in range(8)]
+        # figure_position = [7,1]
+        figure_position_fen = self.get_key(Chess.vertical, figure_position[1]) + self.get_key(Chess.horizontal,figure_position[0])
+        moves_list =[]
+        for i in range(8):
+            x = figure_position[0] + moves_n[i][0]
+            y = figure_position[1] + moves_n[i][1]
+            if (0 <= x < 8) and (0 <= y < 8):
+                # matrix [x][y] = "N"
+                # if self.matrix[x][y] == '.' or self.matrix[x][y] in 'PRNBKQ' if self.next_move == 'b' else 'rnbkq':
+                if self.matrix[x][y] not in 'PRNBKQ' if self.next_move == 'w' else 'rnbkq':
+                    moves_list.append( figure_position_fen + self.get_key(Chess.vertical, y) + self.get_key(Chess.horizontal, x))
 
-
+        return  sorted(moves_list)
 
     def generate_matrix_moves(self):
         moves_n = [(-2, 1), (-1,2), (1,2),(2,1),(2,-1), (1, -2), (-1, -2),(-2,-1)]
@@ -331,15 +383,23 @@ class Chess:
         return self.passant, self.matrix
 
 if __name__ == "__main__":
-    fen = input(str())  # inpput fen notation
-    move = input(str())  # input move
-    # fen ="r4rk1/pppppppp/8/N7/8/8/PPPPPPPP/R3K2R w KQ - 1 17"
-    # move ="e1c1"
+    # fen = input(str())  # inpput fen notation
+    # move = input(str())  # input move
+    fen ="r2qk2r/ppp2ppp/2np1n2/2bNp1B1/2B1P1b1/3P1N2/PPP2PPP/R2QK2R b KQkq - 3 7"
+    move =None
     chess1 = Chess(fen)
     if move:
         chess1.get_move_figure(move)
         chess1.set_passant(move)  # Взятие на проходе
         chess1.make_move(move)
     print(chess1.print_chess_board())
-    print(chess1.print_generate_matrix_moves())
-    print(sorted(chess1.list_moves))
+    # print(chess1.print_generate_matrix_moves())
+    # print(sorted(chess1.get_position('n')))
+    print(len(chess1.generate_all_moves()))
+    # print(*chess1.generate_all_moves())
+    # print(chess1.generate_knights_moves())
+    # for i in range(len(chess1.sorted_list_moves())):
+    #     print(*chess1.sorted_list_moves()[i])
+    result = chess1.sorted_list_moves()
+    for _ in result:
+        print(*_)

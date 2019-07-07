@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="3.%D0%A1%D1%82%D0%BE%D0%B9%20%D0%BA%D1%82%D0%BE%20%D0%B8%D0%B4%D1%91%D1%82_files/bootstrap.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="3.%D0%A1%D1%82%D0%BE%D0%B9%20%D0%BA%D1%82%D0%BE%20%D0%B8%D0%B4%D1%91%D1%82_files/font-awesome.css">
+        <link rel="stylesheet" href="3.%D0%A1%D1%82%D0%BE%D0%B9%20%D0%BA%D1%82%D0%BE%20%D0%B8%D0%B4%D1%91%D1%82_files/style.css">
+
+        <script src="3.%D0%A1%D1%82%D0%BE%D0%B9%20%D0%BA%D1%82%D0%BE%20%D0%B8%D0%B4%D1%91%D1%82_files/jquery-1.js"></script>
+        <script src="3.%D0%A1%D1%82%D0%BE%D0%B9%20%D0%BA%D1%82%D0%BE%20%D0%B8%D0%B4%D1%91%D1%82_files/popper.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="3.%D0%A1%D1%82%D0%BE%D0%B9%20%D0%BA%D1%82%D0%BE%20%D0%B8%D0%B4%D1%91%D1%82_files/bootstrap.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <title>3.Стой кто идёт</title>
+    </head>
+    <body>
+        <div>
+    <div class="navbar mb-4 text-white bg-success">
+        <h2 id="htmlTitle">
+                            <a href="https://www.robotsharp.info/?page=TaskList" style="color: white">«</a>
+                        3.Стой кто идёт
+        </h2>
+        <div class="btn-group righted" style="float:right;">
+            <strong>Сергей Николаенко</strong>
+        </div>
+    </div>
+<div class="container-fluid px-4">
+    <div class="row">
+        <div class="col-8 h-100">
+            <div class="btn-group">
+                <a href="https://www.robotsharp.info/index.php?page=TaskList" class="btn btn-secondary">«&nbsp;Список</a>
+                &nbsp;
+                    <a href="https://www.robotsharp.info/index.php?page=TaskCode&amp;taskId=3730" class="btn btn-primary btn-block">Решать</a>
+                &nbsp;
+                <a href="https://www.robotsharp.info/index.php?page=TaskStat&amp;taskId=3730">Статистика</a>
+            </div>
+            		<div class="row">
+			<div class="col-12">
+				<br><h3>Условие задачи</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="task-text">
+					Дана позиция, в которой могут быть белые пешки. Ход белых. 
+<br>Необходимо сгенерировать все возможные ходы для всех пешек,
+<br>в том числе взятия на проходе.
+<br>
+<br>Если в FEN-позиции указано "битое поле" - en-passant, 
+<br>то нужно для пешки сгенерировать дополнительный ход -
+<br>взятие на проходе, если она, конечно, может сделать
+<br>взятие на это поле.
+<br>
+<br>Дано: FEN-позиция.
+<br>Надо: Вывести количество ходов пешками и их список.
+				</div>
+			</div>
+		</div>
+                </div>
+        <div class="col-4">
+                    <div class="col-12 example mb-4">
+            <div class="card-header">
+                <label for="fileIn">Начальные данные</label>
+            </div>
+            <textarea id="fileIn" class="form-control text-white bg-info" rows="1" readonly="readonly" style="font-family:monospace">8/8/8/K2Pp1k1/8/8/8/8 w - e6 0 80
+</textarea>
+        </div>
+        <div class="col-12 example">
+            <div class="card-header">
+                <label for="fileOut">Результат</label>
+            </div>
+            <textarea id="fileOut" class="form-control text-white bg-success" rows="2" readonly="readonly" style="font-family:monospace">2
+d5d6 d5e6
+</textarea>
+        </div>        </div>
+    </div>
+</div>
+        </div>
+    
+</body></html>

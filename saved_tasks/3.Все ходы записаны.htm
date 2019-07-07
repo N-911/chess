@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="3.%D0%92%D1%81%D0%B5%20%D1%85%D0%BE%D0%B4%D1%8B%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D1%8B_files/bootstrap.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="3.%D0%92%D1%81%D0%B5%20%D1%85%D0%BE%D0%B4%D1%8B%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D1%8B_files/font-awesome.css">
+        <link rel="stylesheet" href="3.%D0%92%D1%81%D0%B5%20%D1%85%D0%BE%D0%B4%D1%8B%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D1%8B_files/style.css">
+
+        <script src="3.%D0%92%D1%81%D0%B5%20%D1%85%D0%BE%D0%B4%D1%8B%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D1%8B_files/jquery-1.js"></script>
+        <script src="3.%D0%92%D1%81%D0%B5%20%D1%85%D0%BE%D0%B4%D1%8B%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D1%8B_files/popper.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="3.%D0%92%D1%81%D0%B5%20%D1%85%D0%BE%D0%B4%D1%8B%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D1%8B_files/bootstrap.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <title>3.Все ходы записаны</title>
+    </head>
+    <body>
+        <div>
+    <div class="navbar mb-4 text-white bg-success">
+        <h2 id="htmlTitle">
+                            <a href="https://www.robotsharp.info/?page=TaskList" style="color: white">«</a>
+                        3.Все ходы записаны
+        </h2>
+        <div class="btn-group righted" style="float:right;">
+            <strong>Сергей Николаенко</strong>
+        </div>
+    </div>
+<div class="container-fluid px-4">
+    <div class="row">
+        <div class="col-8 h-100">
+            <div class="btn-group">
+                <a href="https://www.robotsharp.info/index.php?page=TaskList" class="btn btn-secondary">«&nbsp;Список</a>
+                &nbsp;
+                    <a href="https://www.robotsharp.info/index.php?page=TaskCode&amp;taskId=3727" class="btn btn-primary btn-block">Решать</a>
+                &nbsp;
+                <a href="https://www.robotsharp.info/index.php?page=TaskStat&amp;taskId=3727">Статистика</a>
+            </div>
+            		<div class="row">
+			<div class="col-12">
+				<br><h3>Условие задачи</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="task-text">
+					Создать и заполнить структуру данных, в которой хранятся все 
+возможные ходы из всех полей шахматной доски для всех фигур, кроме 
+короля и пешек.
+<br>
+<br>Это массив из 256 элементов, 
+<br>индекс которого в двоичном виде определяется следующим образом:
+<br>ffyyyxxx
+<br>ff - номер фигуры, 00 - конь, 01 - слон, 10 - ладья 11 - ферзь
+<br>yyy - № горизонтали поля, от 1 до 8
+<br>xxx - № вертикали поля, от a до h.
+<br>
+<br>Каждый элемент массива хранит ссылку на список, в котором перечислены все возможные ходы выбранной фигурой из выбранного поля.
+<br>
+<br>Элемент списка обладает следующей структурой:
+<br>
+<br>class MoveNode {
+<br>&nbsp; int coord - координата, куда фигура может пойти
+<br>&nbsp; MoveNode next - ссылка на следующий ход или null
+<br>&nbsp; MoveNode turn - ссылка на следующую группу ходов
+<br>}
+<br>
+<br>Написать программу, которая создаст указанный массив и заполнит его данными.
+<br>
+<br>Программа должна вывести количество возможных ходов 
+<br>для указанного элемента массива в указанном формате.
+<br>
+<br>Пример: 0 = 00 000 000 - конь, стоящий на поле a1
+<br>Ответ: 2
+<br>Список:
+<br>[ 0: { b3, #1, #1 } , 1: { c2, null, null }]
+<br>
+<br>Пример: 73 = 01 001 001 - слон, стоящий на поле b2
+<br>Ответ: 9
+<br>Список:
+<br>[
+<br>&nbsp; 0: { a1, #1, #1 }, 
+<br>&nbsp; 1: { a3, #2, #2 }, 
+<br>&nbsp; 2: { c3, #3, #8 }, 3: { d4, #4, #8 }, 4: { e5, #5, #8 }, 
+<br>&nbsp; 5: { f6, #6, #8 }, 5: { g7, #7, #8 }, 6: { h8, #8, #8 }, 
+<br>&nbsp; 8: { c1, null, null } ]
+<br>]
+<br>
+				</div>
+			</div>
+		</div>
+                </div>
+        <div class="col-4">
+                    <div class="col-12 example mb-4">
+            <div class="card-header">
+                <label for="fileIn">Начальные данные</label>
+            </div>
+            <textarea id="fileIn" class="form-control text-white bg-info" rows="1" readonly="readonly" style="font-family:monospace">0</textarea>
+        </div>
+        <div class="col-12 example">
+            <div class="card-header">
+                <label for="fileOut">Результат</label>
+            </div>
+            <textarea id="fileOut" class="form-control text-white bg-success" rows="1" readonly="readonly" style="font-family:monospace">2
+</textarea>
+        </div>        </div>
+    </div>
+</div>
+        </div>
+    
+</body></html>

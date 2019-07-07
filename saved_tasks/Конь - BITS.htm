@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="%D0%9A%D0%BE%D0%BD%D1%8C%20-%20BITS_files/bootstrap.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="%D0%9A%D0%BE%D0%BD%D1%8C%20-%20BITS_files/font-awesome.css">
+        <link rel="stylesheet" href="%D0%9A%D0%BE%D0%BD%D1%8C%20-%20BITS_files/style.css">
+
+        <script src="%D0%9A%D0%BE%D0%BD%D1%8C%20-%20BITS_files/jquery-1.js"></script>
+        <script src="%D0%9A%D0%BE%D0%BD%D1%8C%20-%20BITS_files/popper.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="%D0%9A%D0%BE%D0%BD%D1%8C%20-%20BITS_files/bootstrap.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <title>Конь - BITS *</title>
+    </head>
+    <body>
+        <div>
+    <div class="navbar mb-4 text-white bg-success">
+        <h2 id="htmlTitle">
+                            <a href="https://www.robotsharp.info/?page=TaskList" style="color: white">«</a>
+                        Конь - BITS *
+        </h2>
+        <div class="btn-group righted" style="float:right;">
+            <strong>Сергей Николаенко</strong>
+        </div>
+    </div>
+<div class="container-fluid px-4">
+    <div class="row">
+        <div class="col-8 h-100">
+            <div class="btn-group">
+                <a href="https://www.robotsharp.info/index.php?page=TaskList" class="btn btn-secondary">«&nbsp;Список</a>
+                &nbsp;
+                    <a href="https://www.robotsharp.info/index.php?page=TaskCode&amp;taskId=1745" class="btn btn-primary btn-block">Решать</a>
+                &nbsp;
+                <a href="https://www.robotsharp.info/index.php?page=TaskStat&amp;taskId=1745">Статистика</a>
+            </div>
+            		<div class="row">
+			<div class="col-12">
+				<br><h3>Условие задачи</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="task-text">
+					<div class="col-xs-12 col-md-6 text-center">
+<br><img src="%D0%9A%D0%BE%D0%BD%D1%8C%20-%20BITS_files/1745.png" class="width-100"><br>
+<br><strong><span class="prog"><big>00000000&nbsp;00000010&nbsp;00000100&nbsp;00000000 = 132096</big></span></strong><br>
+<br><strong><span class="prog"><big>2<sup>17</sup> + 2<sup>10</sup> = 131072 + 1024 = 132096</big></span></strong></div>
+<br><div class="col-xs-12 col-md-6">
+<br>Шахматный конь решил пробежаться по шахматной доске.
+<br>Сейчас он находится в указанной клетке.
+<br>Куда он может сейчас походить?
+<br>Вывести количество возможных ходов коня
+<br>и <span class="prog kwd">ulong</span> число с установленными битами тех полей, куда он может походить.
+<br><br>
+<br><strong>Начальные данные</strong>: число от 0 до 63 - индекс позиции коня
+<br>Клетки нумеруются от <span class="prog">а<sub>1</sub> = 0</span>,&nbsp; <span class="prog">b<sub>1</sub> = 1</span> до&nbsp; <span class="prog">h<sub>8</sub> = 63</span>.
+<br>
+<br><strong>Вывод результата</strong>: два числа на двух клетках,
+<br>количество возможных ходов
+<br>битовая маска всех возможных ходов коня.
+<br>
+<br>На доске кроме коня никого нет, конь ходит буквой "Г" (две клетки вперёд и 1 вбок).
+<br>
+<br>http://www.talkchess.com/forum3/viewtopic.php?t=39053
+<br></div>
+				</div>
+			</div>
+		</div>
+                </div>
+        <div class="col-4">
+                    <div class="col-12 example mb-4">
+            <div class="card-header">
+                <label for="fileIn">Начальные данные</label>
+            </div>
+            <textarea id="fileIn" class="form-control text-white bg-info" rows="1" readonly="readonly" style="font-family:monospace">0</textarea>
+        </div>
+        <div class="col-12 example">
+            <div class="card-header">
+                <label for="fileOut">Результат</label>
+            </div>
+            <textarea id="fileOut" class="form-control text-white bg-success" rows="2" readonly="readonly" style="font-family:monospace">2
+132096
+</textarea>
+        </div>        </div>
+    </div>
+</div>
+        </div>
+    
+</body></html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="3.%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D1%88%D0%B0%D0%B3_files/bootstrap.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="3.%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D1%88%D0%B0%D0%B3_files/font-awesome.css">
+        <link rel="stylesheet" href="3.%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D1%88%D0%B0%D0%B3_files/style.css">
+
+        <script src="3.%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D1%88%D0%B0%D0%B3_files/jquery-1.js"></script>
+        <script src="3.%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D1%88%D0%B0%D0%B3_files/popper.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="3.%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D1%88%D0%B0%D0%B3_files/bootstrap.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <title>3.Королевский шаг</title>
+    </head>
+    <body>
+        <div>
+    <div class="navbar mb-4 text-white bg-success">
+        <h2 id="htmlTitle">
+                            <a href="https://www.robotsharp.info/?page=TaskList" style="color: white">«</a>
+                        3.Королевский шаг
+        </h2>
+        <div class="btn-group righted" style="float:right;">
+            <strong>Сергей Николаенко</strong>
+        </div>
+    </div>
+<div class="container-fluid px-4">
+    <div class="row">
+        <div class="col-8 h-100">
+            <div class="btn-group">
+                <a href="https://www.robotsharp.info/index.php?page=TaskList" class="btn btn-secondary">«&nbsp;Список</a>
+                &nbsp;
+                    <a href="https://www.robotsharp.info/index.php?page=TaskCode&amp;taskId=3732" class="btn btn-primary btn-block">Решать</a>
+                &nbsp;
+                <a href="https://www.robotsharp.info/index.php?page=TaskStat&amp;taskId=3732">Статистика</a>
+            </div>
+            		<div class="row">
+			<div class="col-12">
+				<br><h3>Условие задачи</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="task-text">
+					Дана позиция. 
+<br>Необходимо сгенерировать все возможные ходы королём той стороны, чей сейчас ход, кроме рокировки.
+<br>
+<br>Король ходит на одно поле в любую сторону, 
+<br>на свободное поле или на поле с чужой фигурой.
+<br>В центре доски у короля может быть 8, на краю - 5, в углу - 3 хода.
+<br>Проверку на шах делать не нужно.
+<br>
+<br>Дано: FEN-позиция.
+<br>Надо: Вывести количество ходов и их список.
+				</div>
+			</div>
+		</div>
+                </div>
+        <div class="col-4">
+                    <div class="col-12 example mb-4">
+            <div class="card-header">
+                <label for="fileIn">Начальные данные</label>
+            </div>
+            <textarea id="fileIn" class="form-control text-white bg-info" rows="1" readonly="readonly" style="font-family:monospace">7k/8/8/8/8/8/8/K7 w - - 0 100
+</textarea>
+        </div>
+        <div class="col-12 example">
+            <div class="card-header">
+                <label for="fileOut">Результат</label>
+            </div>
+            <textarea id="fileOut" class="form-control text-white bg-success" rows="2" readonly="readonly" style="font-family:monospace">3
+a1a2 a1b1 a1b2
+</textarea>
+        </div>        </div>
+    </div>
+</div>
+        </div>
+    
+</body></html>
