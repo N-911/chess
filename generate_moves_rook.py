@@ -1,12 +1,12 @@
 """Условие задачи
-Дана позиция, в которой могут быть белые и/или чёрные слоны.
-Необходимо сгенерировать все возможные ходы слонами для той стороны, чей сейчас ход.
+Дана позиция, в которой могут быть белые и/или чёрные ладьи.
+Необходимо сгенерировать все возможные ходы ладьями для той стороны, чей сейчас ход.
 
-Слон ходит по диагонали на одно или несколько полей,
-он не может перепрыгивать фигуры,
+Ладья ходит прямо по горизонтали или по вертикали на одно или несколько полей,
+она не может перепрыгивать фигуры,
 может ходить на пустое поле в прямой видимости
 или делать взятие на поле с фигурой противника.
-Проверку на шах делать не нужно.
+Проверку на шах делать не нужно, рокировочные ходы генерировать не нужно.
 
 Дано: FEN-позиция.
 Надо: Вывести количество ходов и их список.
@@ -152,19 +152,23 @@ class Chess:
     def generate_all_moves(self):
 
         figures = 'RNBKQ' if self.next_move =='w' else 'rnbkq'
-
         figures_position = {x : self.get_position(x) for x in figures }
         list_moves = []
-        for el in figures:
-            if el == 'N' or el == 'n':
+        for fig in figures:
+            if fig == 'N' or fig == 'n':
                 pass
-                # ll = figures_position[el]
-                # for i in ll:
+                # list_fig_position = figures_position[fig]
+                # for i in list_fig_position:
                 #     list_moves+=(self.generate_knights_moves(i))
-            if el == 'B' or el == 'b':
-                ll = figures_position[el]
-                for i in ll:
-                    list_moves+=(self.generate_bishop_moves(i))
+            if fig == 'B' or fig == 'b':
+                pass
+                # list_fig_position = figures_position[fig]
+                # for i in list_fig_position:
+                #     list_moves+=(self.generate_bishop_moves(i))
+            if fig == 'R' or fig == 'r':
+                list_fig_position = figures_position[fig]
+                for i in list_fig_position:
+                    list_moves += (self.generate_rook_moves(i))
 
         return sorted(list_moves)
 
@@ -209,7 +213,6 @@ class Chess:
         return sorted(moves_list)
 
     def generate_bishop_moves (self, figure_position):
-        # moves_n = [(-2, 1), (-1, 2), (1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1)]
         matrix = [['.'] * 8 for x in range(8)]
         figure_position_fen = self.get_key(Chess.vertical, figure_position[1]) + self.get_key(Chess.horizontal, figure_position[0])
         moves_list =[]
@@ -263,6 +266,64 @@ class Chess:
                     break
 
         return sorted(moves_list)
+
+
+    def generate_rook_moves (self, figure_position):
+        matrix = [['.'] * 8 for x in range(8)]
+        figure_position_fen = self.get_key(Chess.vertical, figure_position[1]) + self.get_key(Chess.horizontal, figure_position[0])
+        moves_list =[]
+        enemy = 'PRNBKQ' if self.next_move == 'w' else 'prnbkq'
+
+        for i in range(1,9):
+            x = figure_position[0] + 0
+            y = figure_position[1] + i
+            if (0 <= x < 8) and (0 <= y < 8):
+                if self.matrix[x][y] == '.':
+                    moves_list.append(figure_position_fen + self.get_key(Chess.vertical, y) + self.get_key(Chess.horizontal, x))
+                elif self.matrix[x][y] not in enemy:
+                    moves_list.append(figure_position_fen + self.get_key(Chess.vertical, y) + self.get_key(Chess.horizontal, x))
+                    break
+                elif self.matrix[x][y] in enemy:
+                    break
+        for i in range(1,9):
+            x = figure_position[0] + 0
+            y = figure_position[1] - i
+            if (0 <= x < 8) and (0 <= y < 8):
+                if self.matrix[x][y] == '.':
+                    moves_list.append(figure_position_fen + self.get_key(Chess.vertical, y) + self.get_key(Chess.horizontal, x))
+                elif self.matrix[x][y] not in enemy:
+                    moves_list.append(figure_position_fen + self.get_key(Chess.vertical, y) + self.get_key(Chess.horizontal, x))
+                    break
+                elif self.matrix[x][y] in enemy:
+                    break
+
+        for i in range(1,9):
+            x = figure_position[0] + i
+            y = figure_position[1] + 0
+            if (0 <= x < 8) and (0 <= y < 8):
+                if self.matrix[x][y] == '.':
+                    moves_list.append(figure_position_fen + self.get_key(Chess.vertical, y) + self.get_key(Chess.horizontal, x))
+                elif self.matrix[x][y] not in enemy:
+                    moves_list.append(figure_position_fen + self.get_key(Chess.vertical, y) + self.get_key(Chess.horizontal, x))
+                    break
+                elif self.matrix[x][y] in enemy:
+                    break
+
+        for i in range(1,9):
+            x = figure_position[0] - i
+            y = figure_position[1] + 0
+            if (0 <= x < 8) and (0 <= y < 8):
+                if self.matrix[x][y] == '.':
+                    moves_list.append(figure_position_fen + self.get_key(Chess.vertical, y) + self.get_key(Chess.horizontal, x))
+                elif self.matrix[x][y] not in enemy:
+                    moves_list.append(figure_position_fen + self.get_key(Chess.vertical, y) + self.get_key(Chess.horizontal, x))
+                    break
+                elif self.matrix[x][y] in enemy:
+                    break
+
+        return sorted(moves_list)
+
+
 
 
     def generate_matrix_moves(self):
